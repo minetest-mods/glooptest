@@ -1,8 +1,5 @@
-local S = minetest.get_translator("glooptest")
-generation_ores = {}
-
 function glooptest.ore_module.register_ore(modname, name, desc, uses)
-	-- `desc` parameter is keep for backward compatibility
+	-- `desc` parameter is kept for backward compatibility
 	-- newer uses of this function must not use this parameter and must
 	-- set appropriate fully localized descriptions in `uses`.
 
