@@ -83,14 +83,16 @@ function glooptest.ore_module.register_ore(modname, name, desc, uses)
 		end
 	end
 	-- register tools
-	if glooptest.modules.tools and (uses.tools ~= nil) and (uses.tools.makes ~= nil) then
+	if glooptest.modules.tools and (uses.tools ~= nil) and (uses.tools.make ~= nil) then
 		local u = {}
-		for tool, value in pairs(uses.tools.makes) do
-			u[tool].makes = value
-			u[tool].texture = uses.tools.texture[tool] or nil
-			u[tool].caps = uses.tools.caps[tool] or nil
-			u[tool].desc = uses.tools.desc[tool] or nil
+		for tool, value in pairs(uses.tools.make) do
+			u[tool] = {
+				makes = value,
+				texture = uses.tools.texture[tool] or nil,
+				caps = uses.tools.caps[tool] or nil,
+				desc = uses.tools.desc[tool] or nil,
+			}
 		end
-		glooptest.tools_module.register_tools(modname, name, desc, u)
+		glooptest.tools_module.register_tools(modname, name, desc, name.."_ingot", u)
 	end
 end

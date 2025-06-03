@@ -147,6 +147,7 @@ glooptest.ore_module.register_ore("glooptest", "alatro", nil, {
 			sword = S("Alatro Sword"),
 			axe = S("Alatro Axe"),
 			pick = S("Alatro Pickaxe"),
+			shovel = S("Alatro Shovel"),
 			handsaw = S("Alatro Handsaw"),
 			hammer = S("Alatro Hammer"),
 		},

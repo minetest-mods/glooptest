@@ -28,14 +28,14 @@ function glooptest.debug(level,message)
 	print("["..level.."][GloopTest v0.0.4a] "..message)
 end
 
-if glooptest.modules.ore then
-	dofile(minetest.get_modpath("glooptest").."/ore_module/init.lua")
+if glooptest.modules.tools then
+	dofile(minetest.get_modpath("glooptest").."/tools_module/init.lua")
 	local modulecount = modules_loaded
 	modules_loaded = modulecount+1
 end
 
-if glooptest.modules.tools then
-	dofile(minetest.get_modpath("glooptest").."/tools_module/init.lua")
+if glooptest.modules.ore then
+	dofile(minetest.get_modpath("glooptest").."/ore_module/init.lua")
 	local modulecount = modules_loaded
 	modules_loaded = modulecount+1
 end
