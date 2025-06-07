@@ -7,13 +7,14 @@ local S = minetest.get_translator("glooptest")
 dofile(minetest.get_modpath("glooptest").."/ore_module/api.lua")
 
 -- HUGE NOTE HERE:
--- I did not make the textures. celeron55/erlehmann made the textures which were licensed under CC-BY-SA, and then edited by me.
+-- I did not make the textures. celeron55/erlehmann made the textures which
+-- were licensed under CC-BY-SA, and then edited by me.
 -- The textures for non-gem ores are thus CC-BY-SA, with respect to celeron55/erlehmann
 -- Suck it, minetest community.
 
 glooptest.ore_module.register_ore("glooptest", "kalite", nil, {
 	ore = {
-		makes = true, 
+		makes = true,
 		drop = {
 			max_items = 4,
 			items = {
@@ -33,7 +34,7 @@ glooptest.ore_module.register_ore("glooptest", "kalite", nil, {
 		texture = {
 			base = "default_stone.png",
 			overlay = "gloopores_mineral_kalite.png",
-		}, 
+		},
 		groups = {cracky=3},
 		sounds = stone_sounds,
 		generate = {
@@ -58,9 +59,18 @@ minetest.register_node("glooptest:kalite_torch", {
 	description = S("Kalite Torch"),
 	drawtype = "torchlike",
 	tiles = {
-		{name="gloopores_kalite_torch_on_floor_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}},
-		{name="gloopores_kalite_torch_on_ceiling_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}},
-		{name="gloopores_kalite_torch_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}}
+		{
+			name="gloopores_kalite_torch_on_floor_animated.png",
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}
+		},
+		{
+			name="gloopores_kalite_torch_on_ceiling_animated.png",
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}
+		},
+		{
+			name="gloopores_kalite_torch_animated.png",
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=3.0}
+		}
 	},
 	inventory_image = "gloopores_kalite_torch_on_floor.png",
 	wield_image = "gloopores_kalite_torch_on_floor.png",
@@ -68,7 +78,7 @@ minetest.register_node("glooptest:kalite_torch", {
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
 	walkable = false,
-	light_source = LIGHT_MAX-1,
+	light_source = core.LIGHT_MAX - 1,
 	selection_box = {
 		type = "wallmounted",
 		wall_top = {-0.1, 0.5-0.6, -0.1, 0.1, 0.5, 0.1},
@@ -420,12 +430,12 @@ glooptest.ore_module.register_ore("glooptest", "arol", nil, {
 
 glooptest.ore_module.register_ore("glooptest", "desert_iron", nil, {
 	ore = {
-		makes = true, 
-		drop = "default:iron_lump", 
+		makes = true,
+		drop = "default:iron_lump",
 		texture = {
 			base = "default_desert_stone.png",
 			overlay = "default_mineral_iron.png",
-		}, 
+		},
 		groups = {cracky=3},
 		sounds = stone_sounds,
 		generate = {
@@ -442,12 +452,12 @@ glooptest.ore_module.register_ore("glooptest", "desert_iron", nil, {
 
 glooptest.ore_module.register_ore("glooptest", "desert_coal", nil, {
 	ore = {
-		makes = true, 
-		drop = "default:coal_lump", 
+		makes = true,
+		drop = "default:coal_lump",
 		texture = {
 			base = "default_desert_stone.png",
 			overlay = "default_mineral_coal.png",
-		}, 
+		},
 		groups = {cracky=3},
 		sounds = stone_sounds,
 		generate = {
@@ -466,12 +476,12 @@ glooptest.ore_module.register_ore("glooptest", "desert_coal", nil, {
 
 glooptest.ore_module.register_ore("glooptest", "ruby", nil, {
 	ore = {
-		makes = true, 
+		makes = true,
 		drop = "glooptest:ruby_gem",
 		texture = {
 			base = "default_stone.png",
 			overlay = "glooptest_mineral_ruby.png",
-		}, 
+		},
 		groups = {cracky=1},
 		sounds = stone_sounds,
 		generate = {
@@ -516,12 +526,12 @@ minetest.register_craft({
 
 glooptest.ore_module.register_ore("glooptest", "sapphire", nil, {
 	ore = {
-		makes = true, 
+		makes = true,
 		drop = "glooptest:sapphire_gem",
 		texture = {
 			base = "default_stone.png",
 			overlay = "glooptest_mineral_sapphire.png",
-		}, 
+		},
 		groups = {cracky=1},
 		sounds = stone_sounds,
 		generate = {
@@ -566,12 +576,12 @@ minetest.register_craft({
 
 glooptest.ore_module.register_ore("glooptest", "emerald", nil, {
 	ore = {
-		makes = true, 
+		makes = true,
 		drop = "glooptest:emerald_gem",
 		texture = {
 			base = "default_stone.png",
 			overlay = "glooptest_mineral_emerald.png",
-		}, 
+		},
 		groups = {cracky=1},
 		sounds = stone_sounds,
 		generate = {
@@ -616,12 +626,12 @@ minetest.register_craft({
 
 glooptest.ore_module.register_ore("glooptest", "topaz", nil, {
 	ore = {
-		makes = true, 
+		makes = true,
 		drop = "glooptest:topaz_gem",
 		texture = {
 			base = "default_stone.png",
 			overlay = "glooptest_mineral_topaz.png",
-		}, 
+		},
 		groups = {cracky=1},
 		sounds = stone_sounds,
 		generate = {
@@ -666,12 +676,12 @@ minetest.register_craft({
 
 glooptest.ore_module.register_ore("glooptest", "amethyst", nil, {
 	ore = {
-		makes = true, 
+		makes = true,
 		drop = "glooptest:amethyst_gem",
 		texture = {
 			base = "default_stone.png",
 			overlay = "glooptest_mineral_amethyst.png",
-		}, 
+		},
 		groups = {cracky=1},
 		sounds = stone_sounds,
 		generate = {

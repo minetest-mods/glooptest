@@ -76,7 +76,7 @@ if glooptest.modules.ore then
 		description = S("Encrusting Upgrade"),
 		inventory_image = "glooptest_encrusting_upgrade.png",
 	})
-	
+
 	minetest.register_craft({
 		output = "glooptest:encrusting_upgrade",
 		recipe = {

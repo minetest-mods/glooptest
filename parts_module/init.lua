@@ -1,6 +1,7 @@
 glooptest.parts_module = {}
 glooptest.debug("MESSAGE","Loading Parts Module Now!")
 local S = minetest.get_translator("glooptest")
+local ALPHA_BLEND = core.features.use_texture_alpha_string_modes and "blend" or true
 
 minetest.register_node("glooptest:crystal_glass", {
 	description = S("Crystal Glass"),
@@ -61,7 +62,7 @@ if glooptest.modules.ore then
 		groups = {cracky=2},
 		sounds = default.node_sound_glass_defaults(),
 	})
-	
+
 	minetest.register_craft({
 		output = "glooptest:akalin_crystal_glass 8",
 		recipe = {
@@ -70,7 +71,7 @@ if glooptest.modules.ore then
 			{"glooptest:crystal_glass", "glooptest:crystal_glass", "glooptest:crystal_glass"}
 		}
 	})
-	
+
 	minetest.register_node("glooptest:heavy_crystal_glass", {
 		description = S("Heavily Reinforced Crystal Glass"),
 		drawtype = "allfaces",
@@ -81,7 +82,7 @@ if glooptest.modules.ore then
 		groups = {cracky=1},
 		sounds = default.node_sound_glass_defaults(),
 	})
-	
+
 	minetest.register_craft({
 		output = "glooptest:heavy_crystal_glass 4",
 		recipe = {
@@ -89,7 +90,7 @@ if glooptest.modules.ore then
 			{"glooptest:akalin_crystal_glass", "glooptest:reinforced_crystal_glass"},
 		}
 	})
-	
+
 	minetest.register_craft({
 		output = "glooptest:heavy_crystal_glass 4",
 		recipe = {
@@ -97,18 +98,18 @@ if glooptest.modules.ore then
 			{"glooptest:reinforced_crystal_glass", "glooptest:akalin_crystal_glass"},
 		}
 	})
-	
+
 	minetest.register_node("glooptest:alatro_crystal_glass", {
 		description = S("Alatro-Reinforced Crystal Glass"),
 		drawtype = "allfaces",
 		tiles = {"glooptest_alatro_crystal_glass.png"},
-		use_texture_alpha = true,
+		use_texture_alpha = ALPHA_BLEND,
 		inventory_image = minetest.inventorycube("glooptest_alatro_crystal_glass.png"),
 		paramtype = "light",
 		groups = {cracky=2},
 		sounds = default.node_sound_glass_defaults(),
 	})
-	
+
 	minetest.register_craft({
 		output = "glooptest:alatro_crystal_glass 8",
 		recipe = {
@@ -128,7 +129,7 @@ if glooptest.modules.ore then
 		groups = {cracky=1},
 		sounds = default.node_sound_glass_defaults(),
 	})
-	
+
 	minetest.register_craft({
 		output = "glooptest:arol_crystal_glass 8",
 		recipe = {
@@ -137,7 +138,7 @@ if glooptest.modules.ore then
 			{"glooptest:crystal_glass", "glooptest:crystal_glass", "glooptest:crystal_glass"}
 		}
 	})
-	
+
 	minetest.register_node("glooptest:talinite_crystal_glass", {
 		description = S("Talinite-Reinforced Crystal Glass"),
 		drawtype = "allfaces",
@@ -149,7 +150,7 @@ if glooptest.modules.ore then
 		groups = {cracky=2},
 		sounds = default.node_sound_glass_defaults(),
 	})
-	
+
 	minetest.register_craft({
 		output = "glooptest:talinite_crystal_glass 8",
 		recipe = {

@@ -82,30 +82,32 @@ glooptest.extragen_module.treasure[5] = {
 	{"default:axe_diamond", 1, 60},
 }
 
-local treasure_chest_formspec = 
+local treasure_chest_formspec =
 	"size[8,9]"..
 	"list[current_name;main;0,0;8,4;]"..
 	"list[current_player;main;0,5;8,4;]"..
 	"listring[current_name;main]"..
 	"listring[current_player;main]"
-	
+
 local treasure_chest_nodebox = {
 	{-7/16, -8/16, -7/16, 7/16, 6/16, 7/16},
 	{-8/16, -8/16, -8/16, 8/16, -7/16, 8/16},
 	{-8/16, 1/16, -8/16, 8/16, 3/16, 8/16},
 }
-	
+
 local function treasure_chest_populate(rank, pos)
 	for i = 1,32 do
 		for _ = 1,math.random(1,2) do
-			item = glooptest.extragen_module.treasure[rank][math.random(1, #glooptest.extragen_module.treasure[rank])]
-			item_rarity = item[3]
+			local item = glooptest.extragen_module.treasure[rank][
+				math.random(1, #glooptest.extragen_module.treasure[rank])
+			]
+			local item_rarity = item[3]
 			if math.random(1, item_rarity+math.random(1,3)) == 1 then
-				item_name = item[1]
-				item_stacksize = item[2]-math.random(0,item[2]-1)
-				minetest.get_inventory({type="node",pos={x=pos.x,y=pos.y,z=pos.z}}):set_stack("main", i, ItemStack({name=item_name,count=item_stacksize}))
+				local item_name = item[1]
+				local item_stacksize = item[2]-math.random(0,item[2]-1)
+				minetest.get_inventory({type="node",pos={x=pos.x,y=pos.y,z=pos.z}})
+					:set_stack("main", i, ItemStack({name=item_name,count=item_stacksize}))
 				break
-			else
 			end
 		end
 	end
@@ -166,22 +168,26 @@ for k, v in ipairs({"I", "II", "III", "IV", "V"}) do
 			return inv:is_empty("main")
 		end,
 		on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-			glooptest.debug("ACTION", player:get_player_name().." moves items in R"..k.." treasure chest at "..minetest.pos_to_string(pos)..".")
+			glooptest.debug("ACTION", player:get_player_name().." moves items in R"..k..
+				" treasure chest at "..minetest.pos_to_string(pos)..".")
 		end,
 	    on_metadata_inventory_put = function(pos, listname, index, stack, player)
-			glooptest.debug("ACTION", player:get_player_name().." moves items in R"..k.." treasure chest at "..minetest.pos_to_string(pos)..".")
+			glooptest.debug("ACTION", player:get_player_name().." moves items in R"..k..
+				" treasure chest at "..minetest.pos_to_string(pos)..".")
 		end,
 	    on_metadata_inventory_take = function(pos, listname, index, stack, player)
-			glooptest.debug("ACTION", player:get_player_name().." takes items from R"..k.." treasure chest at "..minetest.pos_to_string(pos)..".")
+			glooptest.debug("ACTION", player:get_player_name().." takes items from R"..k..
+				" treasure chest at "..minetest.pos_to_string(pos)..".")
 		end,
 	})
 end
 
 minetest.register_on_generated(function(minp, maxp)
-	coords = {}
-	coords.x = {}
-	coords.y = {}
-	coords.z = {}
+	local coords = {
+		x = {},
+		y = {},
+		z = {}
+	}
 	for i = minp.x,maxp.x do
 		table.insert(coords.x, i)
 	end
@@ -194,22 +200,25 @@ minetest.register_on_generated(function(minp, maxp)
 	for x = 1,#coords.x do
 	for y = 1,#coords.y do
 	for z = 1,#coords.z do
-		if minetest.get_node({x=coords.x[x],y=coords.y[y]+1,z=coords.z[z]}).name == "air" and minetest.get_node({x=coords.x[x],y=coords.y[y],z=coords.z[z]}).name ~= "air" and minetest.registered_nodes[minetest.get_node({x=coords.x[x],y=coords.y[y],z=coords.z[z]}).name].drawtype == "normal" then
+		local npos_ground = {x=coords.x[x],y=coords.y[y],  z=coords.z[z]}
+		local npos_above  = {x=coords.x[x],y=coords.y[y]+1,z=coords.z[z]}
+		if minetest.get_node(npos_above).name == "air"
+				and minetest.registered_nodes[minetest.get_node(npos_ground).name].drawtype == "normal" then
 			if coords.y[y] >=0 then
 				if math.random(1,5000) == 1 then
-					minetest.place_node({x=coords.x[x],y=coords.y[y]+1,z=coords.z[z]}, {name="glooptest:treasure_chest_1", param2=math.random(1,4)})
+					minetest.place_node(npos_above, {name="glooptest:treasure_chest_1", param2=math.random(1,4)})
 				elseif math.random(1,8000) == 1 then
-					minetest.place_node({x=coords.x[x],y=coords.y[y]+1,z=coords.z[z]}, {name="glooptest:treasure_chest_2", param2=math.random(1,4)})
+					minetest.place_node(npos_above, {name="glooptest:treasure_chest_2", param2=math.random(1,4)})
 				end
 			elseif coords.y[y] <=-30 then
 				if math.random(1,1000) == 1 then
-					minetest.place_node({x=coords.x[x],y=coords.y[y]+1,z=coords.z[z]}, {name="glooptest:treasure_chest_3", param2=math.random(1,4)})
+					minetest.place_node(npos_above, {name="glooptest:treasure_chest_3", param2=math.random(1,4)})
 				elseif coords.y[y] <=-1000 then
 					if math.random(1,1300) == 1 then
-						minetest.place_node({x=coords.x[x],y=coords.y[y]+1,z=coords.z[z]}, {name="glooptest:treasure_chest_4", param2=math.random(1,4)})
+						minetest.place_node(npos_above, {name="glooptest:treasure_chest_4", param2=math.random(1,4)})
 					elseif coords.y[y] <=-2500 then
 						if math.random(1,2000) == 1 then
-							minetest.place_node({x=coords.x[x],y=coords.y[y]+1,z=coords.z[z]}, {name="glooptest:treasure_chest_5", param2=math.random(1,4)})
+							minetest.place_node(npos_above, {name="glooptest:treasure_chest_5", param2=math.random(1,4)})
 						end
 					end
 				end
