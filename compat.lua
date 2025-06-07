@@ -1,5 +1,5 @@
+assert(not glooptest.compat_module, "Load order conflict!")
 glooptest.compat_module = {}
-glooptest.debug("MESSAGE","Loading Compat Module Now!")
 
 minetest.register_alias("gloopores:mineral_alatro", "glooptest:mineral_alatro")
 minetest.register_alias("gloopores:alatro_lump", "glooptest:alatro_lump")

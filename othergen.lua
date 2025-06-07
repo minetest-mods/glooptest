@@ -1,6 +1,6 @@
+assert(not glooptest.extragen_module, "Load order conflict!")
 glooptest.extragen_module = {}
 glooptest.extragen_module.treasure={}
-glooptest.debug("MESSAGE","Loading Extragen Module Now!")
 local S = minetest.get_translator("glooptest")
 
 -- {item name, max stack size, item rarity}

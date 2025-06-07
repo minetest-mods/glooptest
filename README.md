@@ -7,6 +7,8 @@ Forum post: https://forum.luanti.org/viewtopic.php?t=4345
 
 ![preview](https://content.luanti.org/uploads/M99OwGL25g.png)
 
+License: [CC-BY-SA 3.0](LICENSE.txt)
+
 ## List of Modules
 
  * "Ore": Adds a variety of ores, for use here and possibly in other mods.

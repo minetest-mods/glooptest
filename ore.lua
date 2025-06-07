@@ -1,10 +1,10 @@
+assert(not glooptest.ore_module, "Load order conflict!")
 glooptest.ore_module = {}
-glooptest.debug("MESSAGE","Loading Ore Module Now!")
 
 local stone_sounds = default.node_sound_stone_defaults()
 local S = minetest.get_translator("glooptest")
 
-dofile(minetest.get_modpath("glooptest").."/ore_module/api.lua")
+dofile(minetest.get_modpath("glooptest").."/ore_api.lua")
 
 -- HUGE NOTE HERE:
 -- I did not make the textures. celeron55/erlehmann made the textures which

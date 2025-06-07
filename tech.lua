@@ -1,5 +1,5 @@
+assert(not glooptest.tech_module, "Load order conflict!")
 glooptest.tech_module = {}
-glooptest.debug("MESSAGE","Loading Tech Module Now!")
 local S = minetest.get_translator("glooptest")
 
 --dofile(minetest.get_modpath("glooptest").."/tech_module/api.lua")

@@ -1,5 +1,5 @@
+assert(not glooptest.parts_module, "Load order conflict!")
 glooptest.parts_module = {}
-glooptest.debug("MESSAGE","Loading Parts Module Now!")
 local S = minetest.get_translator("glooptest")
 local ALPHA_BLEND = core.features.use_texture_alpha_string_modes and "blend" or true
 

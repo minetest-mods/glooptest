@@ -1,7 +1,7 @@
+assert(not glooptest.tools_module, "Load order conflict!")
 glooptest.tools_module = {}
-glooptest.debug("MESSAGE","Loading Tools Module Now!")
 
-dofile(minetest.get_modpath("glooptest").."/tools_module/api.lua")
+dofile(minetest.get_modpath("glooptest").."/tools_api.lua")
 local S = minetest.get_translator("glooptest")
 
 glooptest.tools_module.register_tools("glooptest", "wood", nil, "group:wood", {
