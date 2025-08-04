@@ -50,7 +50,7 @@ minetest.register_craft({
 	}
 })
 
-if glooptest.modules.ore then
+if glooptest.modules["ore"] then
 
 	minetest.register_node("glooptest:akalin_crystal_glass", {
 		description = S("Akalin-Reinforced Crystal Glass"),

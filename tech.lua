@@ -71,7 +71,7 @@ minetest.register_craft({
 	},
 })
 
-if glooptest.modules.ore then
+if glooptest.modules["ore"] then
 	minetest.register_craftitem("glooptest:encrusting_upgrade", {
 		description = S("Encrusting Upgrade"),
 		inventory_image = "glooptest_encrusting_upgrade.png",
