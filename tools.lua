@@ -190,8 +190,63 @@ glooptest.tools_module.register_tools("glooptest", "diamond", nil, "default:diam
 	},
 })
 
-if glooptest.load_ore_module == true then
+if glooptest.modules["ore"] then
 	glooptest.tools_module.register_tools("glooptest", "alatro", nil, "glooptest:alatro_ingot", {
+		sword = {
+			makes = true,
+			texture = "gloopores_tool_alatrosword.png",
+			caps = {
+				full_punch_interval = 1.0,
+				max_drop_level = 0,
+				groupcaps={
+					fleshy={times={[2]=0.80, [3]=0.60}, uses=40, maxlevel=1},
+					snappy={times={[2]=0.80, [3]=0.60}, uses=40, maxlevel=1},
+					choppy={times={[3]=0.80}, uses=40, maxlevel=0}
+				},
+				damage_groups = {fleshy=5},
+			},
+			desc = S("Alatro Sword"),
+		},
+		axe = {
+			makes = true,
+			texture = "gloopores_tool_alatroaxe.png",
+			caps = {
+				full_punch_interval = 1.0,
+				max_drop_level = 0,
+				groupcaps = {
+					choppy = {times={[2]=0.65, [3]=0.40}, uses=40, maxlevel=1},
+					fleshy = {times={[2]=0.65, [3]=0.40}, uses=40, maxlevel=1}
+				},
+				damage_groups = {fleshy=3},
+			},
+			desc = S("Alatro Axe"),
+		},
+		pick = {
+			makes = true,
+			texture = "gloopores_tool_alatropick.png",
+			caps = {
+				full_punch_interval = 1.0,
+				max_drop_level = 0,
+				groupcaps = {
+					cracky = {times={[2]=0.65, [3]=0.40}, uses=40, maxlevel=1}
+				},
+				damage_groups = {fleshy=3},
+			},
+			desc = S("Alatro Pickaxe"),
+		},
+		shovel = {
+			makes = true,
+			texture = "gloopores_tool_alatroshovel.png",
+			caps = {
+				full_punch_interval = 1.0,
+				max_drop_level = 0,
+				groupcaps = {
+					crumbly = {times={[2]=0.60, [3]=0.35}, uses=40, maxlevel=1}
+				},
+				damage_groups = {fleshy=3},
+			},
+			desc = S("Alatro Shovel"),
+		},
 		handsaw = {
 			makes = true,
 			texture = "glooptest_tool_alatrohandsaw.png",
@@ -222,6 +277,61 @@ if glooptest.load_ore_module == true then
 		},
 	})
 	glooptest.tools_module.register_tools("glooptest", "arol", nil, "glooptest:arol_ingot", {
+		sword = {
+			makes = true,
+			texture = "gloopores_tool_arolsword.png",
+			caps = {
+				full_punch_interval = 0.5,
+				max_drop_level = 2,
+				groupcaps = {
+					fleshy = {times={[2]=1.30, [3]=1.10}, uses=300, maxlevel=2},
+					snappy = {times={[2]=1.30, [3]=1.10}, uses=300, maxlevel=2},
+					choppy = {times={[3]=1.60}, uses=300, maxlevel=1}
+				},
+				damage_groups = {fleshy=6},
+			},
+			desc = S("Arol Sword"),
+		},
+		axe = {
+			makes = true,
+			texture = "gloopores_tool_arolaxe.png",
+			caps = {
+				full_punch_interval = 0.5,
+				max_drop_level = 2,
+				groupcaps = {
+					choppy = {times={[1]=3.30, [2]=1.30, [3]=1.00}, uses=300, maxlevel=2},
+					fleshy = {times={[2]=1.60, [3]=1.00}, uses=300, maxlevel=2}
+				},
+				damage_groups = {fleshy=3},
+			},
+			desc = S("Arol Axe"),
+		},
+		pick = {
+			makes = true,
+			texture = "gloopores_tool_arolpick.png",
+			caps = {
+				full_punch_interval = 0.5,
+				max_drop_level = 2,
+				groupcaps = {
+					cracky = {times={[1]=3.60, [2]=1.90, [3]=1.40}, uses=300, maxlevel=2}
+				},
+				damage_groups = {fleshy=3},
+			},
+			desc = S("Arol Pickaxe"),
+		},
+		shovel = {
+			makes = true,
+			texture = "gloopores_tool_arolshovel.png",
+			caps = {
+				full_punch_interval = 0.5,
+				max_drop_level = 2,
+				groupcaps = {
+					crumbly = {times={[1]=2.70, [2]=1.45, [3]=0.85}, uses=300, maxlevel=2}
+				},
+				damage_groups = {fleshy=3},
+			},
+			desc = S("Arol Shovel"),
+		},
 		handsaw = {
 			makes = true,
 			texture = "glooptest_tool_arolhandsaw.png",

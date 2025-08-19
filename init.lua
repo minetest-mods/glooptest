@@ -24,8 +24,14 @@ local modules_loaded = {}
 
 for _, name in ipairs(modules_list) do
 	if core.settings:get_bool("glooptest.load_" .. name .. "_module", true) then
-		dofile(modpath .. "/" .. name .. ".lua")
 		glooptest.modules[name] = true
+	end
+end
+
+for _, name in ipairs(modules_list) do
+	if glooptest.modules[name] then
+		dofile(modpath .. "/" .. name .. ".lua")
+		--glooptest.modules[name] = true
 		table.insert(modules_loaded, name)
 	end
 end
